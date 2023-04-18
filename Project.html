@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="stomp.js"></script>
+
+    <title>Project</title>
+</head>
+<body>
+    <form id="Project">
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login no nosso site<br>E entre para o nosso time</h1> 
+            <img src="API.svg" class="left-API" alt="API">
+        </div>
+        <div class="rigth-login">
+            <div class="card-login">
+            <h1>Login</h1>
+                <div class="textfield">
+                  <label for="usuario">Usuário</label>
+                  <input type="text" name="usuario" placeholder="Usuário">
+        </div>
+        <div class="textfield">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha">
+        </div>
+        <button class="btn-login" type ="submit">Login</button>
+    </form>
+
+        <script>
+        //import Stomp from 'stomp.js';
+        var TESTE = document.getElementById('Project')
+        TESTE.addEventListener('submit', evento => {
+            evento.preventDefault();
+
+            var formDados = new FormData(TESTE);
+            var Dados = Object.fromEntries(formDados);
+            console.log(Dados)
+
+            jsonDados = JSON.stringify(Dados)
+
+            console.log(jsonDados)
+
+            const socket = new WebSocket('ws://localhost:61614','stomp');
+            const client = Stomp.over(socket);
+
+            client.connect('admin', 'admin', () => {
+                console.log('Conexão estabelecida');
+  
+                    client.send('/queue/filaTeste', {}, jsonDados);
+
+                    console.log('Mensagem enviada');
+  
+                   client.disconnect(() => {
+                 //   console.log('Conexão encerrada');
+               });
+            });
+
+            /*
+            ws = new WebSocket('ws://localhost:61614','stomp')
+
+            ws.onopen = () => {
+                
+             var print = ws.send('CONNECT\n\n\0')
+
+                ws.send('SEND\ndestination:TESTE\n\n\0')
+
+                ws.send('DISCONNECT\n\n\0')
+
+
+            }
+
+            */
+            
+
+ /*           
+            console.log(jsonDados)
+
+            ws = new WebSocket('ws://localhost:61614','stomp')
+            ws.onopen = () => {
+
+            fetch(ws, {
+            method: 'stomp',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + btoa('admin:admin') // substitua "admin:admin" pelas credenciais do seu usuário
+            },
+            body: JSON.stringify(jsonDados)
+            })
+        }
+        */
+            /*
+            function enviarMensagem(mensagem) {
+                 ws = new WebSocket('ws://localhost:61614','stomp')
+                 const xmlHttp = new XMLHttpRequest(ws);
+                 const url = ws;
+                 const params = jsonDados;
+
+                 xmlHttp.open('POST', url, true);
+                 xmlHttp.setRequestHeader('Content-type', 'application/json');
+                 xmlHttp.setRequestHeader('Authorization', 'Basic ' + btoa('admin:admin')); // substitua "admin:admin" pelas credenciais do seu usuário
+                 xmlHttp.send(params);
+            }
+            */
+
+
+            /*
+            // Importa a biblioteca Stomp.js
+const Stomp = require('stompjs');
+
+// Cria uma conexão com o ActiveMQ
+const client = Stomp.client('ws://localhost:61614');
+
+// Conecta ao ActiveMQ
+client.connect({}, () => {
+  // Cria uma mensagem de texto
+  const message = 'Minha mensagem';
+
+  // Envia a mensagem para a fila
+  client.send('/queue/minha-fila', {}, message);
+
+  // Fecha a conexão
+  client.disconnect();
+});
+
+*/
+
+       /*     function sendMessage() {
+
+                const Stomp = require('stompjs')  
+
+                const client = Stomp.client('ws://localhost:61614');
+
+                 client.connect({}, function() {
+
+                    const message = jsonDados;
+
+                    client.send('/queue/TESTE',  message);
+
+                    client.disconnect();
+
+             //   client.send('/queue/example', {}, 'Esta é uma mensagem de exemplo');
+                });
+            }
+
+   //      sendMessage();
+*/
+   /*
+            var require = ('stompjs')
+
+            var Stomp = require
+
+
+            const client = Stomp.client('ws://localhost:61614')
+
+            client.connect({}, () =>{
+
+                const message = jsonDados;
+
+                client.send('/queue/TESTE', {}, message);
+
+                client.disconnect();
+
+            });
+
+            */
+            /*
+
+            ws.onopen = () => {
+
+            amq.sendMessage('http://www.acme.com/TESTE/input',jsonDados);
+
+            }
+/*
+            ws = new WebSocket('ws://localhost:61614','stomp')
+
+            ws.onopen = () => {
+                
+             var print = ws.send('CONNECT\n\n\0')
+
+                ws.send('SEND\ndestination:TESTE\n\n\0')
+
+                ws.send('DISCONNECT\n\n\0')
+
+
+            }
+
+            */
+/*
+            post(jsonDados)
+
+            async function post(jsonDados){
+
+                const req = await fetch('https://reqres.in/api/users', {
+                method: "POST",
+                body: jsonDados,
+                headers: {
+                    "Content-Type": "application/json",
+                }
+
+
+        }).then(res => res.json()).then(jsonDados =>console.log(jsonDados))
+     }
+     */
+/*
+            fetch('http://localhost:8080/hop/api/v1/metadata/types', {
+                method:'POST',
+                withCredentials: true,
+                headers:{
+                    '--user' : 'admin',   
+                    'password' : 'admin',
+                    'Content-Type':'application/json',
+                },
+                body: JSON.stringify(Dados)
+            }).then(res => res.json()).then(Dados =>console.log(Dados))
+            */
+       })
+        
+        /*
+        const request = new XMLHttpRequest();
+        request.open("POST", "https://json.extendsclass.com/bin", true);
+        request.setRequestHeader("Api-key", "486291dc-d291-11ed-9d1b-0242ac110002");
+        request.setRequestHeader("Security-key", "abcde123");
+        request.setRequestHeader("Private", "true");
+        request.onreadystatechange = () => {
+        };
+        request.send('{"palavrao":"fodase"}');
+      
+    })*/
+        
+        </script>
+</body>
+</html>
