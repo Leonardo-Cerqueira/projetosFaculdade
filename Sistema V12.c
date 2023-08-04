@@ -1629,7 +1629,6 @@ int detalhes(){
 	printf("========================================================TRINITY GAMES==================================================\n\n");
 	printf("Detalhes do software:\n\n");
 	printf("Criado por:.......... Leonardo Cerqueira Gomes,   RA:921105737\n");
-	printf("E Jo�o Pedro Ferreira Sanches Siqueira Coletuano, RA:921110178\n");
 	printf("\n=======================================================================================================================\n\n");
 	sleep(3,0);
 	menuPrincipal();
