@@ -1,4 +1,26 @@
-print("Quantos telefones você deseja cadastrar?")
+import pandas as pd
+
+class Menu:
+
+    print("---------------------------------------INÍCIO DO PROGRAMA---------------------------------------")
+    print("Deseja visualizar os cadastros da planilha?(S/N)")
+    escolha = input()
+
+    if ((escolha == 'S') or (escolha == 's')):
+           Contato()
+        
+            
+
+
+class Contato():
+
+    Pl = pd.read_excel("C:\Meus Proejtos\projetosFaculdade\Planilhateste.xlsx")
+
+    df_teste = Pl
+
+    print(df_teste)
+
+"""print("Quantos telefones você deseja cadastrar?")
 QTD = int(input())
 
 cont = 0
@@ -18,4 +40,4 @@ print('\n' + "fim prog")
 
 
 ##with open("numeros.txt", "r") as ler:
-# ##   print(numero)
+# ##   print(numero)"""
