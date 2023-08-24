@@ -1,25 +1,16 @@
 import pandas as pd
+from Clientes import visualisarCad
 
-class Menu:
+class Main:
 
     print("---------------------------------------INÍCIO DO PROGRAMA---------------------------------------")
-    print("Deseja visualizar os cadastros da planilha?(S/N)")
+    print("Deseja visualizar os cadastros da planilha?(Sim/Não)")
     escolha = input()
 
-    if ((escolha == 'S') or (escolha == 's')):
-           Contato()
+   ## if ((escolha == 'SIM') or (escolha == 'sim')):
+  ##         visualisarCad()
         
             
-
-
-class Contato():
-
-    Pl = pd.read_excel("C:\Meus Proejtos\projetosFaculdade\Planilhateste.xlsx")
-
-    df_teste = Pl
-
-    print(df_teste)
-
 """print("Quantos telefones você deseja cadastrar?")
 QTD = int(input())
 
