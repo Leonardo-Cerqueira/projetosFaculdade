@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import pandas as pd
 
 # Pl = pd.read_excel("C:\Meus Projetos\projetosFaculdade\Planilhateste.xlsx")
