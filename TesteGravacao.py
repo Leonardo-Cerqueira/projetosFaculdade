@@ -1,13 +1,21 @@
 from Clientes import VisualisarCad
+from Clientes import Escrever
 
 instancia = VisualisarCad
+instacia2 = Escrever
 
 
 class Main:
     print("---------------------------------------INÍCIO DO PROGRAMA---------------------------------------")
-    print("Deseja visualizar os cadastros da planilha?(Sim/Não)")
+    print("|Escolha uma opção:                                                                            |")
+    print("------------------------------------------------------------------------------------------------")
+    print("|Ler cadastros da planilha(1)                 | Alterar cadastros da planilha(2)               |")
+    print("------------------------------------------------------------------------------------------------")
     escolha = input()
 
-    if (escolha == 'SIM') or (escolha == 'sim'):
+    if (escolha == '1'):
         instancia.clientes()
+    if (escolha == '2'):
+        instacia2.alterar
+
         
