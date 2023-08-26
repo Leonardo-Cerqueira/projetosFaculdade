@@ -20,8 +20,10 @@ class Escrever:
         coluna = int(input())
         print("\n" + "Escolha a linha a ser alterada:")
         linha  = int(input())
-        print("\n Escolha o novo valor a ser inserido:")
+        print("\n" + "Escolha o novo valor a ser inserido:")
         valor  = input()
+        os.system("cls")
+        print("---------------------------------------Valores Atualizados------------------------------------------" + "\n")
 
         plan.cell(row=linha,column=coluna,value=valor)
         plan.template = True
