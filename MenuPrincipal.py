@@ -17,7 +17,7 @@ class Main:
       print("---------------------------------------INÍCIO DO PROGRAMA---------------------------------------")
       print("|Escolha uma opção:                                                                            |")
       print("------------------------------------------------------------------------------------------------")
-      print("|Ler cadastros da planilha(1)                 | Alterar cadastros da planilha(2)               |")
+      print("|Ler cadastros da planilha(1)                 | Adicionar/Alterar cadastros da planilha(2)     |")
       print("------------------------------------------------------------------------------------------------")
       print("|                                     Finalizar programa(3)                                    |")
       print("------------------------------------------------------------------------------------------------")
