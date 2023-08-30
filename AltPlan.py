@@ -16,11 +16,11 @@ class Escrever:
 
     def alterar():
         os.system("cls")
-        print("Escolha a coluna a ser alterada:")
+        print("Escolha a coluna a ser alterada:" + "\n")
         coluna = int(input())
-        print("\n" + "Escolha a linha a ser alterada:")
+        print("\n" + "Escolha a linha a ser alterada:" + "\n")
         linha  = int(input())
-        print("\n" + "Escolha o novo valor a ser inserido:")
+        print("\n" + "Escolha o novo valor a ser inserido:" + "\n")
         valor  = input()
         os.system("cls")
         print("---------------------------------------Valores Atualizados------------------------------------------" + "\n")

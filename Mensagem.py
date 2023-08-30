@@ -13,4 +13,12 @@ plan = planilha.active
 
 class Mensagem:
 
+    def mensagem():
+        print("Digite a linha do dado desejado:" + "\n")
+        linha = int(input())
+        print("\n" + "Digite a coluna do dado desejado:" + "\n")
+        coluna = int(input())
+
+        Varmeng = plan.cell(row=linha,column=coluna).value 
+        print("\n" + "Dado da Célula: " + Varmeng)
     
