@@ -29,6 +29,7 @@ class Main:
         os.system("cls")
         if (escolha2 != "SIM"):
            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
+           os.system("exit")
            break  
       if (escolha == '2'):
         instacia2.alterar()
@@ -37,12 +38,14 @@ class Main:
         if (escolha2 != "SIM"):
            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
            break  
-        if(escolha == '3'):
-         os.system("cls")
-         instacia3.mensagem()
-         escolha2 = (input("\n" + "Digite -sim- para voltar ao menu principal:" + "\n\n")).upper()
-         os.system("cls")
-         
+      if(escolha == '3'):
+        os.system("cls")
+        instacia3.mensagem()
+        escolha2 = (input("\n" + "Digite -sim- para voltar ao menu principal:" + "\n\n")).upper()
+        os.system("cls")
+        if (escolha2 != "SIM"):
+           print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
+           break  
       if (escolha == '4'):
            os.system("cls")
            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")

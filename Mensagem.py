@@ -4,8 +4,8 @@ import os
 from openpyxl import load_workbook
 from openpyxl import workbook
 
-#df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
-df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Planilhateste.xlsx")
+df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
+#df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Planilhateste.xlsx")
 df.head(100)
 
 planilha = load_workbook(filename= 'Planilhateste.xlsx')
@@ -14,11 +14,12 @@ plan = planilha.active
 class Mensagem:
 
     def mensagem():
+
         print("Digite a linha do dado desejado:" + "\n")
         linha = int(input())
         print("\n" + "Digite a coluna do dado desejado:" + "\n")
         coluna = int(input())
-
+        
         Varmeng = plan.cell(row=linha,column=coluna).value 
-        print("\n" + "Dado da Célula: " + Varmeng)
-    
+        print("\n" + "Dado da Célula: " + Varmeng + "\n")
+        print("Olá, *$NOME$*, tudo bem?" + "\n" + "Somos da Digital, da *CAIXA*." + "\n" + "Você pode RENOVAR o seu empréstimo *CONSIGNADO* CAIXA, com taxas e prazos SUPER ESPECIAIS! A parcela será mantida, e você ainda receberá um troco na RENOVAÇÃO." + "\n" + "Gostou?" + "\n" + "retorne essa mensagem.")
