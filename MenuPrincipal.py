@@ -21,7 +21,7 @@ class Main:
       print("|Ler cadastros da planilha(1)                 | Adicionar/Alterar cadastros da planilha(2)     |")
       print("------------------------------------------------------------------------------------------------")
       print("|Enviar mensagem(3)                           | Finalizar programa(4)                          |")
-      print("------------------------------------------------------------------------------------------------")
+      print("------------------------------------------------------------------------------------------------" + "\n")
       escolha = input()
       if (escolha == '1'):
         instancia.clientes()
@@ -49,6 +49,7 @@ class Main:
       if (escolha == '4'):
            os.system("cls")
            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
+           os.system("exit")
            break
 
   
