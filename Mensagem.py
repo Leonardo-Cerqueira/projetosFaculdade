@@ -6,6 +6,7 @@ from openpyxl import workbook
 import webbrowser as web
 import keyboard 
 import pyautogui
+import time
 
 #df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
 
@@ -43,6 +44,7 @@ class Mensagem:
             keyboard.wait("enter")
             ##web.open(url+tel,msg)
             web.open('https://web.whatsapp.com/send?phone='+tel+'&text='+msg)
-            pyautogui.press('enter', presses = 1)
+            time.sleep(13)
+            pyautogui.hotkey('enter', presses = 1)
 
       
