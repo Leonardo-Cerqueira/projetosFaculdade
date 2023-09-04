@@ -25,15 +25,14 @@ class Mensagem:
     def mensagem():
 
         print(df)
-        print("\n\n" + "Digite a coluna onde o telefone está:" + "\n")
-        coluna = int(input())
-        print("\n" + "Digite a linha onde o telefone está:" + "\n")
-        linha = int(input())
-        print("\n" + "Digite o nome da pessoa da qual a mensagem será enviada: " + "\n")
-        nome = input()
+        coluna = int(input(("\n\n" + "Digite a coluna onde o telefone está:" + "\n\n")))
+        linha = int(input(("\n" + "Digite a linha onde o telefone está:" + "\n\n")))
+        nome = input(("\n" + "Digite o nome da pessoa para qual a mensagem será enviada: " + "\n\n"))
+
         Varmeng = plan.cell(row=linha,column=coluna).value 
+        os.system("cls")
         print("\n" + "Dado da Célula: " + Varmeng + "\n\n" + "Nome digitado: " + nome)
-        print("\n" + "Os dados estão corretos?: " + "\n")
+        print("\n" + "Os dados estão corretos (sim/não): " + "\n")
         corr = input().upper()
         if corr== "SIM":
             url = 'https://web.whatsapp.com/send?phone='
@@ -44,7 +43,11 @@ class Mensagem:
             keyboard.wait("enter")
             ##web.open(url+tel,msg)
             web.open('https://web.whatsapp.com/send?phone='+tel+'&text='+msg)
-            time.sleep(13)
-            pyautogui.hotkey('enter', presses = 1)
+            time.sleep(12)
+            pyautogui.hotkey('enter') 
+        else:
+            print("\n" + "Aguarde...")
+            time.sleep(0.5)
+            os.system("cls")
 
       
