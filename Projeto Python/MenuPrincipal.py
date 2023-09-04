@@ -45,7 +45,7 @@ class Main:
         os.system("cls")
         instacia3.mensagem()
         instacia4.limpa()
-        escolha2 = (input("\n" + "Deseja voltar ao menu principal para corrigir? (Sim/Não):" + "\n\n")).upper()
+        escolha2 = (input("\n" + "Deseja voltar ao menu principal? (Sim/Não):" + "\n\n")).upper()
         os.system("cls")
         if (escolha2 != "SIM"):
            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")

@@ -1,13 +1,10 @@
 import pandas as pd
-
 import os
-
 from openpyxl import load_workbook
 
 
-
 #df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
-df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Planilhateste.xlsx")
+df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Projeto Python\\Planilhateste.xlsx", index_col=0)
 df.head(41)
 
 planilha = load_workbook(filename= 'Planilhateste.xlsx')
