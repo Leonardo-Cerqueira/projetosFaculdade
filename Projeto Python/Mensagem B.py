@@ -14,14 +14,14 @@ df.head(100)
 planilha = load_workbook(filename= 'Planilhateste.xlsx')
 plan = planilha.active
 
-
+df['telefone4'] = ['+55 11961611974']
 
 
 class Mensagem:
 
-    def mensagem():
+    def mensagem(): 
 
-        print(df)
+        print(df.columns)
         coluna = int(input(("\n\n" + "Digite a coluna onde o telefone está:" + "\n\n")))
         linha = int(input(("\n" + "Digite a linha onde o telefone está:" + "\n\n")))
         nome = input(("\n" + "Digite o nome da pessoa para qual a mensagem será enviada: " + "\n\n"))
