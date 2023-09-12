@@ -16,7 +16,7 @@ import webbrowser as web
 #while len(navegador.find_elements_by_id("side")) < 1:
  #   time.sleep(1)
 
-# já estamos com o login feito no whatsapp web
+# já estamos com o login feito no whatsapp webexit
 for i, mensagem in enumerate(contatos_df['Mensagem']):
     pessoa = contatos_df.loc[i, "Pessoa"]
     numero = contatos_df.loc[i, "Número"]

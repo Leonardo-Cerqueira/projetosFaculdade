@@ -48,3 +48,111 @@ Time: 0:37
 Phone Number: +55 11961611974
 Message: Sou uma mensagem personalizada
 --------------------
+Date: 12/9/2023
+Time: 0:33
+Phone Number: telefone1    +55 11945981146
+telefone2    +55 11945981146
+telefone3    +55 11945981146
+telefone4    +55 11945981146
+telefone5    +55 11945981146
+Name: nan, dtype: object
+Message: olarrr, sou uma mensagem automática criada pelo Leonardo. Estamos testando hehehehe
+--------------------
+Date: 12/9/2023
+Time: 0:34
+Phone Number: telefone1    +55 11945981146
+telefone2    +55 11945981146
+telefone3    +55 11945981146
+telefone4    +55 11945981146
+telefone5    +55 11945981146
+Name: nan, dtype: object
+Message: olarrr, sou uma mensagem automática criada pelo Leonardo. Estamos testando hehehehe
+--------------------
+Date: 12/9/2023
+Time: 0:35
+Phone Number: telefone1    +55 11945981146
+telefone2    +55 11945981146
+telefone3    +55 11945981146
+telefone4    +55 11945981146
+telefone5    +55 11945981146
+Name: nan, dtype: object
+Message: olarrr, sou uma mensagem automática criada pelo Leonardo. Estamos testando hehehehe
+--------------------
+Date: 12/9/2023
+Time: 0:37
+Phone Number: NaN                   NaN
+NaN    ------------------
+NaN            COL NUM: 4
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+NaN       +55 11945981146
+Name: telefone1, dtype: object
+Message: Olarr, sou uma mensagem automática criada pelo Leonardo. Estamos testando hehehe
+--------------------
+Date: 12/9/2023
+Time: 0:38
+Phone Number: +55 11945981146
+Message: Ollar, sou uma mensagem automática criada pelo Leonardoo
+--------------------
+Date: 12/9/2023
+Time: 0:39
+Phone Number: +55 11945981146
+Message: Ollar, sou uma mensagem automática criada pelo Leonardoo
+--------------------
+Date: 12/9/2023
+Time: 0:40
+Phone Number: +55 11945981146
+Message: Ollar, sou uma mensagem automática criada pelo Leonardoo
+--------------------
+Date: 12/9/2023
+Time: 0:41
+Phone Number: +55 11945981146
+Message: Ollarr, sou uma mensagem automática criada pelo Leonardo. Estamos testando heheheheh
+--------------------
+Date: 12/9/2023
+Time: 0:41
+Phone Number: +55 11945981146
+Message: Ollarr, sou uma mensagem automática criada pelo Leonardo. Estamos testando heheheheh
+--------------------
+Date: 12/9/2023
+Time: 0:42
+Phone Number: +55 11945981146
+Message: Ollarr, sou uma mensagem automática criada pelo Leonardo. Estamos testando heheheheh
+--------------------
