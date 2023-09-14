@@ -8,10 +8,15 @@ import time
 import pygetwindow as pw
 from   selenium import webdriver 
 import pywhatkit as conn
+from selenium.webdriver.common.keys import Keys 
 
 #df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
 df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Projeto Python\\Planilhateste.xlsx", index_col=0)
 df.head(100)
+
+#
+navegador = webdriver.Chrome()
+navegador.get("https://web.whatsapp.com/")
 
 class Mensagem:
 
@@ -46,20 +51,23 @@ class Mensagem:
             #a: str = linhacol
 
             msg = input()
+            a = input()
             um = 4
             dois = 7
             for i, posicao in enumerate(range(um, dois)):
              #print(posicao)
             # telefone5 = df["telefone5"].iloc[posicao]
              #telefone5 = df[["telefone1","telefone2","telefone3","telefone4","telefone5"]].iloc[posicao]
-             telefone5 = df["telefone1"].iloc[posicao]
+             telefone5 = df[a].iloc[posicao]
              
              telefone = str(telefone5)
              print(telefone)
+             navegador.get('https://web.whatsapp.com/send?phone='+telefone+'&text='+msg)
              #conn.sendwhatmsg_instantly(phone_no= telefone, message= msg, tab_close= True, close_time= 1)
-             web.open('https://web.whatsapp.com/send?phone='+telefone+'&text='+msg)
+             #web.open('https://web.whatsapp.com/send?phone='+telefone+'&text='+msg, new=0)
              time.sleep(11)
-             pyautogui.hotkey('enter')
+             navegador.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').send_keys(Keys.ENTER)
+             time.sleep(1.3)
              #te = 2l = df.loc[i, "telefone4"]
 
             # print(telefone5)
