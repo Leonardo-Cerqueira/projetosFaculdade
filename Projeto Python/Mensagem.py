@@ -48,7 +48,7 @@ class Mensagem:
             #b: str = escoluna         
             
             
-            #a: str = linhacol
+            #a: str = linhacol..
 
             msg = input()
             a = input()
