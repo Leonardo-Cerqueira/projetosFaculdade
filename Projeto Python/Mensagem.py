@@ -9,6 +9,7 @@ import pygetwindow as pw
 from   selenium import webdriver 
 import pywhatkit as conn
 from selenium.webdriver.common.keys import Keys 
+from selenium.webdriver.common.by import By
 
 #df  = pd.read_excel("C:\\Meus Projetos\\projetosFaculdade\\Planilhateste.xlsx")
 df = pd.read_excel("C:\\TESTE GIT 2\\projetosFaculdade\\Projeto Python\\Planilhateste.xlsx", index_col=0)
@@ -66,7 +67,8 @@ class Mensagem:
              #conn.sendwhatmsg_instantly(phone_no= telefone, message= msg, tab_close= True, close_time= 1)
              #web.open('https://web.whatsapp.com/send?phone='+telefone+'&text='+msg, new=0)
              time.sleep(11)
-             navegador.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').send_keys(Keys.ENTER)
+
+             navegador.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span').send_keys(Keys.ENTER)
              time.sleep(1.3)
              #te = 2l = df.loc[i, "telefone4"]
 
