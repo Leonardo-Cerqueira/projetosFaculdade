@@ -1,3 +1,3 @@
 # projetosFaculdade
 
-Repositorio criado com o objetivo de armazenar meu projetos pessoais feitos para a faculdade
+Repositorio criado com o objetivo de armazenar meus projetos pessoais feitos para a faculdade
