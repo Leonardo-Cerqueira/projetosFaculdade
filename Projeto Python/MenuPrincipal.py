@@ -118,4 +118,3 @@ class Main:
                 keyboard.write("exit")
                 pyautogui.hotkey('enter')
                 break
-
