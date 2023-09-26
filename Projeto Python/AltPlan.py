@@ -18,7 +18,7 @@ class Escrever:
         os.system("cls")
         while True:
            try:  
-             coluna = int(input("Escolha a coluna a ser alterada (somente números!!):" + "\n"))
+             coluna = int(input("Escolha a coluna a ser alterada (somente números!!):" + "\n\n"))
              break
            except ValueError:
               print('\n' + "Digite apenas números!!")
@@ -26,7 +26,7 @@ class Escrever:
               os.system("cls")
         while True:
            try:      
-             linha = int(input("\n" + "Escolha a linha a ser alterada (somente números!!):" + "\n"))
+             linha = int(input("\n" + "Escolha a linha a ser alterada (somente números!!):" + "\n\n"))
              break
            except ValueError:
              print("\n" + "Digite apenas números!!" + "\n")

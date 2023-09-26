@@ -16,19 +16,11 @@ class Main:
     
     os.system('cls')
     print("------------------------------------------------------Observações importantes------------------------------------------------------" + '\n\n' + "Escolha sempre valores condizentes com as opções disponíveis, sejam elas números ou afimações." + '\n\n' + 'As afirmações (Sim e Nao), podem ser escritas de forma maiúscula ou minúscula, entretanto, o "Nao" deve estar sempre sem acetuação.')
-    time.sleep(7.0)
+    #time.sleep(7.0)
 
     while True:
       os.system('cls')
-      print("\n\n" + "---------------------------------------INÍCIO DO PROGRAMA---------------------------------------")
-      print("|Escolha uma opção:                                                                            |")
-      print("------------------------------------------------------------------------------------------------")
-      print("|Ler cadastros da planilha(1)                 | Adicionar/Alterar cadastros da planilha(2)     |")
-      print("------------------------------------------------------------------------------------------------")
-      print("|Enviar mensagem(3)                           | Finalizar programa(4)                          |")
-      print("------------------------------------------------------------------------------------------------")
-      print("|                                       Observações(5)                                         |")
-      print("------------------------------------------------------------------------------------------------" + "\n")
+      print("\n\n"+"                              ---------------------------------------INÍCIO DO PROGRAMA---------------------------------------"+'\n'+"                              |Escolha uma opção:                                                                            |"+"\n" + "                              ------------------------------------------------------------------------------------------------" + '\n' +"                              |Ler cadastros da planilha(1)                 | Adicionar/Alterar cadastros da planilha(2)     |"+ '\n' +"                              ------------------------------------------------------------------------------------------------" + '\n'+"                              |Enviar mensagem(3)                           | Finalizar programa(4)                          |"+ '\n' + "                              ------------------------------------------------------------------------------------------------"'\n'+"                              |                                       Observações(5)                                         |"+'\n'+"                              ------------------------------------------------------------------------------------------------"+"\n")
       escolha = input()
 
       match escolha:
@@ -64,14 +56,6 @@ class Main:
              pyautogui.hotkey('enter')
              os.system("cls")
              break
-          if (escolha4 != 'SIM'):
-            os.system('cls')
-            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
-            time.sleep(2.0)
-            keyboard.write("exit")
-            pyautogui.hotkey('enter')
-            os.system("cls")
-            break
          case '3':
           instancia3.mensagem()
           escolha5 = (input("\n" + "Deseja voltar ao menu principal? (Sim/Nao):" + "\n\n")).upper()
@@ -88,14 +72,6 @@ class Main:
              pyautogui.hotkey('enter')
              os.system("cls")
              break
-          if (escolha5 != 'SIM'):
-            os.system('cls')
-            print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
-            time.sleep(2.0)
-            keyboard.write("exit")
-            pyautogui.hotkey('enter')
-            os.system("cls")
-            break
          case '4': 
           os.system("cls")
           print("---------------------------------------FIM DO PROGRAMA------------------------------------------")
