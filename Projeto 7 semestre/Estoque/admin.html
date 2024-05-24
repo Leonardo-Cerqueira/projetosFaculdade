@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>admin page</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="styleadmin.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="/" class="logo">🚛 📦 </a>
+      <a href="/" class="subtitulo">Oi!Armazenei </a>
+      <button class="hamburger"></button>
+      <li><a href="index.html" class=log>Logout</a></li>
+      <ul class="nav-list">
+      </ul>
+    </nav>
+  </header>
+  <main class="hero">
+
+    <div class="container">
+
+      <div class="admin-product-form-container">
+        <form id="form" action enctype="multipart/form-data">
+          <h3>adicionar novo produto</h3>
+          <input id="nameProd" type="text" placeholder="confirme o nome do produto" name="product_name" class="box">
+          <input id="priceProd" type="number" placeholder="Confirme o preço do produto" name="product_price"
+            class="box">
+          <input id="catProd" type="text" placeholder="Confirme a categoria do produto" name="product_category"
+            class="box">
+          <input id="sizeProd" type="text" placeholder="Confirme as dimensões do produto" name="product_dimensions"
+            class="box">
+            <input id="qtdProd" type="number" placeholder="Confirme a quantidade do produto" name="product_quantity"
+            class="box">
+          <input type="submit" class="btn" name="add_product" value="adicionar produto">
+          <input type="submit" class="btn" name="show_product" value="visualizar produto">
+        </form>
+
+        <script>
+          // Envia dados de estoque
+
+          //Coleta os dados do formulário a partir do submit do button
+           var ForData = document.getElementById("form");
+           ForData.addEventListener('submit', evento => {
+             evento.preventDefault();
+ 
+             //atribui os valores dos campos dos formulários para as variáveis
+             var nome_Prod = document.getElementById("nameProd").value;
+             var preco_Prod = document.getElementById("priceProd").value;
+             var categoria_Prod = document.getElementById("catProd").value;
+             var tamanho_Prod = document.getElementById("sizeProd").value;
+             var qtd_Prod = document.getElementById("qtdProd").value;
+
+ 
+             //exibe os dados coletados do formulário
+ 
+             console.log(nome_Prod);
+             console.log(preco_Prod);
+             console.log(categoria_Prod);
+             console.log(tamanho_Prod);
+             console.log(qtd_Prod);
+ 
+             //criei um construtor da biblioteca XMLHttpRequest e armazenei em uma constante
+             const xhr = new XMLHttpRequest();
+ 
+             //abri uma conexão e realizei um POST para uma url
+             xhr.open("POST", "http://localhost:8080/Servlet/servletConfig");
+ 
+             //configurei os Headers para conterem dados no modo Json
+             xhr.setRequestHeader("Content-Type", "application/json");
+             var corp = JSON.stringify({
+               nameProd: nome_Prod,
+               priceProd: preco_Prod,
+               catProd: categoria_Prod,
+               sizeProd: tamanho_Prod,
+               qtdProd: qtd_Prod
+             });
+ 
+             //Exibe os dados do body do Header
+             console.log(corp);
+ 
+             //envia o body da requisição para a URL mais acima
+             xhr.send(corp);
+ 
+             //Aqui é um listener que verifica se o POST retornou 200, e se retornou 200, fecha a conexão
+             xhr.onload = () => {
+               console.log(xhr.status);
+               xhr.abort();
+               console.log("Conexão fechada")
+ 
+             };
+ 
+           }) 
+
+           
+
+           /*
+           // Consulta prods
+          var ForData = document.getElementById("form");
+          ForData.addEventListener('submit', evento => {
+            evento.preventDefault();
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8080/Servlet/servletConfig");
+            xhr.send();
+            xhr.responseType = "application/json";
+            xhr.onload = () => {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+
+                var arreq = JSON.parse(xhr.response);
+
+                for (var i = 0; i < arreq.length; i++) {
+                  var obj = arreq[i];
+
+                  var codProd = obj.Cod_prd;
+                  var nameProd = obj.Nome_produto;
+                  var priceProd = obj.Preco_produto;
+                  var catProd = obj.Categoria_produto;
+                  var sizeProd = obj.Tamanho_produto;
+                  var qtdProd = obj.Quantidade_produto;
+
+                  console.log("Código Produto = ", codProd);
+                  console.log("Nome Produto = ",  nameProd);
+                  console.log("Preço produto R$", priceProd,",00");
+                  console.log("Categoria Produto = ", catProd);
+                  console.log("Dimensões Produto = ", sizeProd);
+                  console.log("Estoque Disponível = ", qtdProd);
+                  console.log("\n");
+                }
+                //console.log(xhr.response);
+              } else {
+                console.log(`Error: ${xhr.status}`);
+              }
+            };
+          });
+
+          */          
+
+        </script>
+</body>
+
+</html>
