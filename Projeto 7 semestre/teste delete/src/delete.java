@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +9,10 @@ public class delete {
 
 	public static void main(String[] args) {
 		
-
+		
+		String alt_QtdProd = "50";
+		String idProd = "3";
+		
 		Connection conn = null;
 		
 		try {
@@ -21,15 +23,13 @@ public class delete {
 		
 		try {
 			
-			String idProd = "1";
-			
 			int id_Prod = Integer.parseInt(idProd);
 			
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/armazem?user=root&password=admin");
 			
 			Statement Qry = conn.createStatement();
 			
-			Qry.executeUpdate("DELETE FROM ESTOQUE WHERE COD_PRD = " + id_Prod + ";");
+			Qry.executeUpdate("UPDATE ESTOQUE SET QTD_PRODUTO =" + "'" + alt_QtdProd + "'" + "WHERE COD_PRD =" + id_Prod + ";");
 			
 			conn.close();
 			
@@ -40,7 +40,6 @@ public class delete {
 			System.out.println("VendorError: " + ex.getErrorCode());
 			
 		}
-
 	}
 
 }

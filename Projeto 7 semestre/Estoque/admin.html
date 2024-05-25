@@ -43,12 +43,71 @@
             class="box">
           <input id="idProd" type="number" placeholder="Insira o código do produto para exclusão" name="product_id"
             class="box">
+          <input id="idProd2" type="number" placeholder="Insira o código do produto para alteração" name="product_id"
+            class="box">
+          <input id="altQtdProd" type="number" placeholder="Confirme a quantidade a alterar do produto"
+            name="product_altQuantity" class="box">
           <input type="submit" class="btn" name="add_product" value="adicionar produto">
           <input type="submit" class="btn" name="show_product" value="visualizar produto">
         </form>
 
         <script>
 
+
+          /*
+
+          //Função alteração estoque
+
+          //coletando os dados do formulário após o acionamento de um botão
+          var ForData = document.getElementById("form");
+          ForData.addEventListener('submit', evento => {
+            evento.preventDefault();
+
+            //coletando os dados do formulário pelo ID e armazenando em variáveis
+            var id_Prod = document.getElementById("idProd2").value;
+            var altQtd_Prod = document.getElementById("altQtdProd").value;
+
+            //printando as variáveis para conferir o valor
+            console.log(id_Prod);
+            console.log(altQtd_Prod);
+
+            //Criando uma constante para a biblioteca XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+
+            //abri uma conexão e realizei um POST para a url do meu Servlet
+            xhr.open("PUT", "http://localhost:8080/Servlet/servletConfig");
+
+            //configurei os Headers para conterem dados no modo Json
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            //Criando um json para realizar um envio
+            var corp = JSON.stringify({
+              idProd: id_Prod,
+              altProdQtd: altQtd_Prod
+
+            });
+
+            //Exibe os dados do body
+            console.log(corp);
+
+            //envia o body da requisição para a URL mais acima
+            xhr.send(corp);
+
+            //Aqui é um listener que verifica se o POST retornou 200, e se retornou 200, fecha a conexão
+            xhr.onload = () => {
+              console.log(xhr.status);
+              xhr.abort();
+              console.log("Conexão fechada")
+
+            };
+
+
+          })
+
+          /*
+
+
+          //Função delete
 
           var ForData = document.getElementById("form");
           ForData.addEventListener('submit', evento => {
@@ -57,8 +116,6 @@
             var id_Prod = document.getElementById("idProd").value;
 
             console.log(id_Prod);
-
-
              
             const xhr = new XMLHttpRequest();
 
@@ -88,6 +145,8 @@
 
 
           })
+
+          /*
 
 
           /*
