@@ -163,5 +163,67 @@ public class servletConfig extends HttpServlet {
 			System.out.println("VendorError: " + ex.getErrorCode());
 		}
 	}
+	
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+
+
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		JSONObject json_Obj;
+
+		JSONParser transform = new JSONParser();
+
+		BufferedReader getReq = request.getReader();
+		
+		String idProd = "";
+		
+		try {
+			
+			json_Obj = (JSONObject) transform.parse(getReq);
+			
+			idProd = (String) json_Obj.get("idProd");
+
+			getReq.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+		} catch (Exception ex) {
+			System.out.println("erro:" + ex);
+		}
+		
+		try {
+			
+			int id_Prod = Integer.parseInt(idProd);
+			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/armazem?user=root&password=admin");
+			
+			Statement Qry = conn.createStatement();
+			
+			Qry.executeUpdate("DELETE FROM ESTOQUE " +  "WHERE COD_PRD =" + id_Prod + ";");
+			
+			conn.close();
+			
+		} catch (SQLException ex) {
+			
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+			
+		}
+		
+	
+	}
 
 }
+
+

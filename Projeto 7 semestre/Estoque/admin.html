@@ -39,13 +39,58 @@
             class="box">
           <input id="sizeProd" type="text" placeholder="Confirme as dimensões do produto" name="product_dimensions"
             class="box">
-            <input id="qtdProd" type="number" placeholder="Confirme a quantidade do produto" name="product_quantity"
+          <input id="qtdProd" type="number" placeholder="Confirme a quantidade do produto" name="product_quantity"
+            class="box">
+          <input id="idProd" type="number" placeholder="Insira o código do produto para exclusão" name="product_id"
             class="box">
           <input type="submit" class="btn" name="add_product" value="adicionar produto">
           <input type="submit" class="btn" name="show_product" value="visualizar produto">
         </form>
 
         <script>
+
+
+          var ForData = document.getElementById("form");
+          ForData.addEventListener('submit', evento => {
+            evento.preventDefault();
+
+            var id_Prod = document.getElementById("idProd").value;
+
+            console.log(id_Prod);
+
+
+             
+            const xhr = new XMLHttpRequest();
+
+            //abri uma conexão e realizei um POST para uma url
+            xhr.open("DELETE", "http://localhost:8080/Servlet/servletConfig");
+
+            //configurei os Headers para conterem dados no modo Json
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            var corp = JSON.stringify({
+              idProd: id_Prod
+            });
+
+            //Exibe os dados do body do Header
+            console.log(corp);
+
+            //envia o body da requisição para a URL mais acima
+            xhr.send(corp);
+
+            //Aqui é um listener que verifica se o POST retornou 200, e se retornou 200, fecha a conexão
+            xhr.onload = () => {
+              console.log(xhr.status);
+              xhr.abort();
+              console.log("Conexão fechada")
+
+            };
+
+
+          })
+
+
+          /*
           // Envia dados de estoque
 
           //Coleta os dados do formulário a partir do submit do button
@@ -101,48 +146,51 @@
  
            }) 
 
-           
+           */
 
-           /*
-           // Consulta prods
-          var ForData = document.getElementById("form");
-          ForData.addEventListener('submit', evento => {
-            evento.preventDefault();
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://localhost:8080/Servlet/servletConfig");
-            xhr.send();
-            xhr.responseType = "application/json";
-            xhr.onload = () => {
-              if (xhr.readyState == 4 && xhr.status == 200) {
 
-                var arreq = JSON.parse(xhr.response);
 
-                for (var i = 0; i < arreq.length; i++) {
-                  var obj = arreq[i];
 
-                  var codProd = obj.Cod_prd;
-                  var nameProd = obj.Nome_produto;
-                  var priceProd = obj.Preco_produto;
-                  var catProd = obj.Categoria_produto;
-                  var sizeProd = obj.Tamanho_produto;
-                  var qtdProd = obj.Quantidade_produto;
+          /*
+          // Consulta prods
+         var ForData = document.getElementById("form");
+         ForData.addEventListener('submit', evento => {
+           evento.preventDefault();
+           const xhr = new XMLHttpRequest();
+           xhr.open("GET", "http://localhost:8080/Servlet/servletConfig");
+           xhr.send();
+           xhr.responseType = "application/json";
+           xhr.onload = () => {
+             if (xhr.readyState == 4 && xhr.status == 200) {
 
-                  console.log("Código Produto = ", codProd);
-                  console.log("Nome Produto = ",  nameProd);
-                  console.log("Preço produto R$", priceProd,",00");
-                  console.log("Categoria Produto = ", catProd);
-                  console.log("Dimensões Produto = ", sizeProd);
-                  console.log("Estoque Disponível = ", qtdProd);
-                  console.log("\n");
-                }
-                //console.log(xhr.response);
-              } else {
-                console.log(`Error: ${xhr.status}`);
-              }
-            };
-          });
+               var arreq = JSON.parse(xhr.response);
 
-          */          
+               for (var i = 0; i < arreq.length; i++) {
+                 var obj = arreq[i];
+
+                 var codProd = obj.Cod_prd;
+                 var nameProd = obj.Nome_produto;
+                 var priceProd = obj.Preco_produto;
+                 var catProd = obj.Categoria_produto;
+                 var sizeProd = obj.Tamanho_produto;
+                 var qtdProd = obj.Quantidade_produto;
+
+                 console.log("Código Produto = ", codProd);
+                 console.log("Nome Produto = ",  nameProd);
+                 console.log("Preço produto R$", priceProd,",00");
+                 console.log("Categoria Produto = ", catProd);
+                 console.log("Dimensões Produto = ", sizeProd);
+                 console.log("Estoque Disponível = ", qtdProd);
+                 console.log("\n");
+               }
+               //console.log(xhr.response);
+             } else {
+               console.log(`Error: ${xhr.status}`);
+             }
+           };
+         });
+
+         */
 
         </script>
 </body>
