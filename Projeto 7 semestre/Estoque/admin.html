@@ -20,7 +20,7 @@
       <a href="/" class="logo">🚛 📦 </a>
       <a href="/" class="subtitulo">Oi!Armazenei </a>
       <button class="hamburger"></button>
-      <li><a href="index.html" class=log>Logout</a></li>
+      <a href="index.html" class=log>Logout</a>
       <ul class="nav-list">
       </ul>
     </nav>
@@ -48,7 +48,12 @@
           <input id="altQtdProd" type="number" placeholder="Confirme a quantidade a alterar do produto"
             name="product_altQuantity" class="box">
           <input type="submit" class="btn" name="add_product" value="adicionar produto">
+          <input type="submit" class="btn" name="add_product" value="Alterar produto">
+          <input type="submit" class="btn" name="add_product" value="Excluir produto">
           <input type="submit" class="btn" name="show_product" value="visualizar produto">
+          <form id="meu teste">
+          <button id="btn_meu" type="submit" class="btn">Clique aqui para visualizar os produtos</button>
+        </form>
         </form>
 
         <div id="products-container"></div>
@@ -72,8 +77,8 @@
         <script>
 
 
-          /*
-
+          
+/*
           //Função alteração estoque
 
           //coletando os dados do formulário após o acionamento de um botão
@@ -122,9 +127,9 @@
 
           })
 
-          */
-
-          /*
+  */        
+/*
+          
                     //Função delete
           
                     var ForData = document.getElementById("form");
@@ -164,10 +169,10 @@
           
                     })
           
-                    */
+  */                  
 
-
-          /*               
+/*
+                      
                              // Envia dados de estoque
                    
                              //Coleta os dados do formulário a partir do submit do button
@@ -225,19 +230,24 @@
                    
                               
          
-         */
-
+         
+*/
 
 
 
 
           // Consulta prods
+//function Exibe(){
+
+         
+
           document.addEventListener("DOMContentLoaded", () => {
 
             var ForData = document.getElementById("form");
 
             ForData.addEventListener('submit', evento => {
-              evento.preventDefault();
+
+            evento.preventDefault();
 
               const xhr = new XMLHttpRequest();
 
@@ -246,7 +256,9 @@
               xhr.send();
 
               xhr.onload = () => {
+
                 if (xhr.status == 200) {
+
                   const response = xhr.response;
 
                   const productsContainer = document.getElementById("products-container");
@@ -259,12 +271,12 @@
                     productDiv.classList.add("product");
 
                     productDiv.innerHTML = `
-                <p>Código do produto: ${Cod_prd}</p>
-                <p>Nome do produto: ${Nome_produto}</p>
-                <p>Preço do produto: R$ ${Preco_produto},00</p>
-                <p>Categoria do produto: ${Categoria_produto}</p>
-                <p>Dimensões do produto: ${Tamanho_produto}</p>
-                <p>Quantidade do produto: ${Quantidade_produto} Un</p>
+                <p class = "btn">Código do produto: ${Cod_prd}</p>
+                <h2>Nome do produto: ${Nome_produto}</h2>
+                <h2>Preço do produto: R$ ${Preco_produto},00</h2>
+                <h2>Categoria do produto: ${Categoria_produto}</h2>
+                <h2>Dimensões do produto: ${Tamanho_produto}</h2>
+                <h2>Quant  idade do produto: ${Quantidade_produto} Un</h2>
               `;
 
                     productsContainer.appendChild(productDiv);
@@ -282,8 +294,8 @@
                 }
               };
             });
-          });
-
+         });
+     //   } 
         </script>
 </body>
 
