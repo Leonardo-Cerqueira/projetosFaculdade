@@ -8,7 +8,7 @@
   <title>admin page</title>
 
   <!-- font awesome cdn link  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">-->
   <link rel="stylesheet" href="styleadmin.css">
 
 </head>
@@ -108,6 +108,7 @@
                     console.log("Dimensões Produto =", Tamanho_produto);
                     console.log("Estoque Disponível =", Quantidade_produto);
                     console.log("\n");
+                    
                   });
                 } else {
                   console.log(`Error: ${xhr.status}`);
@@ -155,6 +156,7 @@
               console.log(xhr.status);
               xhr.abort();
               console.log("Conexão fechada")
+              location.reload(true);
 
             };
 
@@ -192,6 +194,7 @@
               console.log(xhr.status);
               xhr.abort();
               console.log("Conexão fechada")
+              location.reload(true);
 
             };
 
@@ -245,6 +248,7 @@
               console.log(xhr.status);
               xhr.abort();
               console.log("Conexão fechada")
+              location.reload(true);
 
 
             };
