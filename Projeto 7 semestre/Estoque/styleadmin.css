@@ -186,8 +186,7 @@ header {
     text-align: right;
 }
 .hero {
-    height: calc(100vh - 70px);
-    background: center / cover no-repeat url("./OIP.jpeg");
+background-color: #A0A0A0;
 }
 @media (max-width:991px){
 

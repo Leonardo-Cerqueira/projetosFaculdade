@@ -1,6 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +21,17 @@ import java.sql.Statement;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.json.JSONArray;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
 
 
 @WebServlet("/servletConfig")
@@ -155,12 +171,32 @@ public class servletConfig extends HttpServlet {
 			
 			out.print(jsonContructor.toString());
 			
+
+			String json = jsonArray.toString();
+
+			   
+			    ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");		
+						
+			    javax.jms.Connection connection = connectionFactory.createConnection("admin", "password");
+
+			    connection.start();
+
+			    Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+			    Destination destination = session.createQueue("Project");
+
+			    MessageProducer producer = session.createProducer(destination);
+
+			    TextMessage message = session.createTextMessage(json);
+
+			    producer.send(message);
+			
 			conn.close();
 			
-		} catch (SQLException ex) {
+		} catch (SQLException | JMSException ex) {
 			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
+			System.out.println("SQLState: " + ((SQLException) ex).getSQLState());
+			System.out.println("VendorError: " + ((SQLException) ex).getErrorCode());
 		}
 	}
 	
