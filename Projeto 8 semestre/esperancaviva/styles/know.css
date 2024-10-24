@@ -1,0 +1,150 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    margin: 0.5cm 0 30px 0;
+}
+
+.logo_esperanca_viva {
+    height: auto;
+    max-height: 360px;
+    width: auto;
+}
+
+.animais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 50px;
+    margin: 150px 0 30px 0;
+}
+
+.cat, .dog {
+    height: auto;
+    max-height: 280px;
+    max-width: 100%;
+}
+
+.dog {
+    max-height: 375px;
+}
+
+.sobre_nos {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 0 10px;
+}
+
+.titulo_sobre_nos {
+    color: #255BD0;
+    text-align: center;
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.paragrafo_sobre_nos {
+    font-size: 22px;
+}
+
+.subtitulo {
+    color: #255BD0;
+    font-size: 33px;
+}
+
+.esperanca_viva {
+    color: #255BD0;
+    font-weight: bold;
+}
+
+.transformando {
+    color: black;
+}
+
+.o_melhor_lugar {
+    display: flex;
+    justify-content: center;
+}
+
+.subtitulo_o_melhor_lugar {
+    font-style: italic;
+}
+
+.rodape {
+    background-color: #FDE803;
+    height: auto;
+    font-style: italic;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.paragrafo_quer_conhecer {
+    font-size: 30px;
+}
+
+.paragrafo_rodape {
+    font-size: 25px;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .animais {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin: 80px 0 30px 0;
+    }
+
+    .cat, .dog {
+        max-height: 300px;
+        width: 100%;
+    }
+
+    .titulo_sobre_nos {
+        font-size: 30px;
+    }
+
+    .paragrafo_sobre_nos {
+        font-size: 18px;
+    }
+
+    .subtitulo {
+        font-size: 25px;
+    }
+
+    .paragrafo_quer_conhecer {
+        font-size: 24px;
+    }
+
+    .paragrafo_rodape {
+        font-size: 20px;
+    }
+
+    .rodape {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo_sobre_nos {
+        font-size: 24px;
+    }
+
+    .paragrafo_sobre_nos {
+        font-size: 16px;
+    }
+
+    .subtitulo {
+        font-size: 20px;
+    }
+
+    .paragrafo_quer_conhecer {
+        font-size: 22px;
+    }
+
+    .paragrafo_rodape {
+        font-size: 18px;
+    }
+}

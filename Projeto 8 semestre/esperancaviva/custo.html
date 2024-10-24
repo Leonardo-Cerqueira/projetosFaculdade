@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adocao</title>
+</head>
+<body>
+    <form id="formView" action enctype="multipart/form-data">
+        <h3>visualizar custos mensais</h3>
+        <input type="submit" class="btn" name="show_costs" value="visualizar custos">
+      </form>
+
+      <div id="costs"></div>
+
+      <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+          var ForData = document.getElementById("formView");
+
+          ForData.addEventListener('submit', evento => {
+
+            evento.preventDefault();
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8080/pet/server2");
+            xhr.responseType = "json";
+            xhr.send();
+
+            xhr.onload = () => {
+              if (xhr.status == 200) {
+                const response = xhr.response;
+
+                const costsContainer = document.getElementById("costs");
+                costsContainer.innerHTML = "";
+
+                response.forEach(costs => {
+                  const {DESPESAS} = costs;
+
+                  const costsDiv = document.createElement("div");
+                  costsDiv.classList.add("costs");
+
+                  costsDiv.innerHTML = `
+                  <h4>Mês referência 9</h4>
+                  <p class="btn">Custos mensais: R$ ${DESPESAS}</p>`;
+
+                  console.log(DESPESAS);
+
+                      costsContainer.appendChild(costsDiv);
+                  
+                  });
+               } else {
+                console.log(`Error: ${xhr.status}`);
+              }
+            };
+          });
+        });
+
+      </script>
+
+</body>
+</html>
+
