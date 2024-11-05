@@ -3,63 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="codigosJS\adocao.js"></script> 
     <title>Adoção</title>
 </head>
 <body>
     <form id="formView" action enctype="multipart/form-data">
         <h3>visualizar animais</h3>
-        <input type="submit" class="btn" name="show_animals" value="visualizar animais">
       </form>
 
       <div id="animais"></div>
-
-      <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-          var ForData = document.getElementById("formView");
-
-          ForData.addEventListener('submit', evento => {
-
-            evento.preventDefault();
-
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://localhost:8080/pet/server");
-            xhr.responseType = "json";
-            xhr.send();
-
-            xhr.onload = () => {
-              if (xhr.status == 200) {
-                const response = xhr.response;
-
-                const animalsContainer = document.getElementById("animais");
-                animalsContainer.innerHTML = "";
-
-                response.forEach(animals => {
-                  const { ID_ANIMAL, ESPECIE, NOME_RACA, NOME, GENERO, ESTADO} = animals;
-
-                  const animalsDiv = document.createElement("div");
-                  animalsDiv.classList.add("animals");
-
-                  animalsDiv.innerHTML = `
-                      <p class="btn">Número do animal: ${ID_ANIMAL}</p>
-                      <h2>Espécie: ${ESPECIE}</h2>
-                      <h2>Nome da Raça: ${NOME_RACA}</h2>
-                      <h2>Nome do Animal: ${NOME}</h2>
-                      <h2>Gênero: ${GENERO}</h2>
-                      <h2>Estado em que foi encontrado: ${ESTADO}</h2>`;
-
-                  animalsContainer.appendChild(animalsDiv);
-
-                  });
-               } else {
-                console.log(`Error: ${xhr.status}`);
-              }
-            };
-          });
-        });
-
-      </script>
 
 </body>
 </html>
