@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação</title>
+</head>
+<body>
+    <form id="formView" action enctype="multipart/form-data">
+        <h3>visualizar doações mensais</h3>
+        <input type="submit" class="btn" name="show_donation" value="visualizar doacoes">
+      </form>
+
+      <div id="donation"></div>
+
+      <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+          var ForData = document.getElementById("formView");
+
+          ForData.addEventListener('submit', evento => {
+
+            evento.preventDefault();
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:8080/pet/server3");
+            xhr.responseType = "json";
+            xhr.send();
+
+            xhr.onload = () => {
+              if (xhr.status == 200) {
+                const response = xhr.response;
+
+                const donationContainer = document.getElementById("donation");
+                donationContainer.innerHTML = "";
+
+                response.forEach(donation => {
+                  const {DOACOES} = donation;
+
+                  const donationDiv = document.createElement("div");
+                  donationDiv.classList.add("donation");
+
+                  donationDiv.innerHTML = `
+                  <h4>Mês referência 10</h4>
+                  <p class="btn">Custos mensais: R$ ${DOACOES}</p>`;
+
+                  console.log(DOACOES);
+
+                  donationContainer.appendChild(donationDiv);
+                  
+                  });
+               } else {
+                console.log(`Error: ${xhr.status}`);
+              }
+            };
+          });
+        });
+
+      </script>
+
+</body>
+</html>
+
