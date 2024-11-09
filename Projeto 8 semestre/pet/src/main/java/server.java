@@ -1,3 +1,4 @@
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.json.JSONArray;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -43,14 +46,14 @@ public class server extends HttpServlet {
  		Connection conn = null;
  		
  		try {
- 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+ 			Class.forName("com.mysql.cj.jdbc.Driver");
  		} catch (Exception ex) {
  			System.out.println("erro:" + ex);
  		}
  		
  		try {
  			
- 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_esperanca_viva?user=admin&password=admin");
+ 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_esperanca_viva?user=root&password=admin");
  			
  			Statement Qry = conn.createStatement();
  			
@@ -108,33 +111,66 @@ public class server extends HttpServlet {
  		}
  	}
 
- 	/**
- 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
- 	 */
- 	/**protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		// TODO Auto-generated method stub
- 		doGet(request, response);
- 	}
- 	
- 	**/
 
- 	/**
- 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
- 	 */
- 	
- 	/** protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		// TODO Auto-generated method stub
- 	}
- **/
- 	/**
- 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
- 	
- 	 */
- 	
- 	/**
- 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		// TODO Auto-generated method stub
- 	}
- 	**/
+ protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
- }
+
+		JSONObject json_Obj;
+
+		JSONParser transform = new JSONParser();
+
+		BufferedReader getReq = request.getReader();
+		
+		 String id0 = "";
+		 String adot = "";
+
+		try {
+			
+			json_Obj = (JSONObject) transform.parse(getReq);
+			
+			id0 = (String) json_Obj.get("id");
+			adot = (String) json_Obj.get("adot");
+
+			getReq.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (Exception ex) {
+			System.out.println("erro:" + ex);
+		}
+		
+		try {
+			
+			int id = Integer.parseInt(id0);
+			int adot1 = Integer.parseInt(adot);
+
+ 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_esperanca_viva?user=admin&password=admin");
+			
+			Statement Qry = conn.createStatement();
+			
+			Qry.executeUpdate(
+					"UPDATE DB_ESPERANCA_VIVA.ANIMAIS SET ADOTADO = " + adot1 + " WHERE ID_ANIMAL = " + id + ";");
+			conn.close();
+			
+		} catch (SQLException ex) {
+			
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+			
+		}
+		
+
+	}
+
+	 
+ } 
+

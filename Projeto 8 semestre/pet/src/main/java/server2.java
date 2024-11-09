@@ -50,7 +50,7 @@ public class server2 extends HttpServlet {
  		
  		try {
  			
- 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_esperanca_viva?user=admin&password=admin");
+ 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_esperanca_viva?user=root&password=admin");
  			
  			Statement Qry = conn.createStatement();
  			
